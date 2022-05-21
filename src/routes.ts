@@ -1,14 +1,19 @@
+import { CACHE_ASSETS } from './cache'
 import { Router } from '@layer0/core/router'
+import shoppingFlowRouteHandler from './shoppingFlowRouteHandler'
 
 export default new Router()
-  // BASIC_AUTH_USERNAME= rishi18304@iiitd.ac.in, BASIC_AUTH_PASSWORD= Layer0 by Limelight
-  // Authorization: Basic cmlzaGkxODMwNEBpaWl0ZC5hYy5pbjpMYXllcjAgYnkgTGltZWxpZ2h0
-  // Add environement variables: https://docs.layer0.co/guides/environments#environment-variables
-  .requireBasicAuth({
-    username: process.env.BASIC_AUTH_USERNAME || 'rishi18304@iiitd.ac.in',
-    password: process.env.BASIC_AUTH_PASSWORD || 'Layer0 by Limelight',
+  // L0 specific files
+  .match('/service-worker.js', ({ serviceWorker }) => {
+    serviceWorker('dist/service-worker.js')
+  })
+  .match('/l0_main.js', ({ serveStatic, cache }) => {
+    cache(CACHE_ASSETS)
+    serveStatic('dist/browser.js')
   })
   // Homepage
-  .match('/:path*', ({ redirect }) => {
-    redirect('/:path*')
+  .match('/', shoppingFlowRouteHandler)
+  // Everything back from origin
+  .fallback(({ proxy }) => {
+    proxy('origin')
   })

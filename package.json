@@ -6,7 +6,9 @@
     "@layer0/devtools": "^4.10.0",
     "@layer0/prefetch": "^4.10.0",
     "@layer0/starter": "^4.10.3",
+    "@types/cheerio": "^0.22.31",
     "@types/node": "^13.13.2",
+    "cheerio": "^1.0.0-rc.11",
     "prettier": "^2.0.5",
     "typescript": "^3.8.3"
   },

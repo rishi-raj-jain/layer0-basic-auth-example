@@ -5,7 +5,7 @@ module.exports = {
     origin: {
       domainOrIp: 'docs.layer0.co',
       hostHeader: 'docs.layer0.co',
-      disableCheckCert: true
+      disableCheckCert: true,
     },
   },
 }
