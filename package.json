@@ -1,0 +1,20 @@
+{
+  "name": "layer0-basic-auth-example",
+  "devDependencies": {
+    "@layer0/cli": "^4.10.0",
+    "@layer0/core": "^4.10.0",
+    "@layer0/devtools": "^4.10.0",
+    "@layer0/prefetch": "^4.10.0",
+    "@layer0/starter": "^4.10.3",
+    "@types/node": "^13.13.2",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "start": "0 dev",
+    "build": "0 build",
+    "prod": "0 run --production",
+    "deploy": "0 deploy -t=layer0-docs",
+    "format": "prettier --write '*/*' --ignore-unknown"
+  }
+}
